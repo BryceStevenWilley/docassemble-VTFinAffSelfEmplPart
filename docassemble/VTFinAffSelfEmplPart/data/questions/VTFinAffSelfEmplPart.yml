@@ -1,9 +1,5 @@
-#SELF-EMPLOYMENT WORKSHEET
+#SELF-EMPLOYMENT WORKSHEET FOR 813A
 
-# TODO: Add `.display_name` for translation
-#I need to work on the review screen (see my attempt at revisit on line 629)
-#I need to add up the auto expenses to show on the form
-#I need to add up the "other expenses" to show on the form
 
 
 ---
@@ -25,7 +21,7 @@ metadata:
   title: >-
     813A Financial - self-employment worksheet
   short title: >-
-    813AFinancial/self-empl
+    813A / Self-empl
   description: |-
     This interview helps someone in Vermont fill and file an 813A financial affidavit in Vermont.
   tags:
@@ -472,7 +468,7 @@ subquestion: |
   We'll create a list of the other business expenses -- one at a time.
 fields:
   - Describe the expense in a word or two: self_empl_other_expenses[i].source
-    maxlength: 20
+    maxlength: 25
   - How much is the expense each month?: self_empl_other_expenses[i].value
     datatype: currency
     min: 0
@@ -696,56 +692,56 @@ attachment:
   fields:
       - "self_empl_gross_sales_monthly_amount": ${ currency(self_empl_gross_sales_monthly_amount) }
       - "self_empl_cgs_amount": ${ currency(self_empl_cgs[0].value) }
-      - "self_empl_advertising_amount": ${ currency(self_empl_advertising_amount) }
-      - "self_empl_bad_debt_amount": ${ currency(self_empl_bad_debt_amount) }
-      - "self_empl_auto_gas_amount": ${ currency(self_empl_auto_gas_amount) }
-      - "self_empl_auto_insur_amount": ${ currency(self_empl_auto_insur_amount) }
-      - "self_employed_auto_maint_amount": ${ currency(self_employed_auto_maint_amount) }
-      - "self_empl_auto_reg_amount": ${ currency(self_empl_auto_reg_amount) }
-      - "self_empl_auto_subtotal_amount": ${ currency(self_empl_auto.total) }
+      - "self_empl_advertising_amount": ${ currency(self_empl_common_exp[0].value) }
+      - "self_empl_bad_debt_amount": ${ currency(self_empl_debts[2].value) }
+      - "self_empl_auto_gas_amount": ${ currency(self_empl_auto[3].value) }
+      - "self_empl_auto_insur_amount": ${ currency(self_empl_auto[0].value) }
+      - "self_employed_auto_maint_amount": ${ currency(self_empl_auto[1].value) }
+      - "self_empl_auto_reg_amount": ${ currency(self_empl_auto[2].value) }
+      - "self_empl_auto_subtotal_amount": ${ currency(self_empl_auto.total(times_per_year = 12)) }
       - "self_empl_commiss_amount": ${ currency(self_empl_employees[1].value) }
       - "self_empl_depletion_amount": ${ currency(self_empl_office[4].value) }
       - "self_empl_depreciation_amount": ${ currency(self_empl_office[3].value) }
-      - "self_empl_dues_pubs_amount": ${ currency(self_empl_dues_pubs_amount) }
+      - "self_empl_dues_pubs_amount": ${ currency(self_empl_common_exp[1].value) }
       - "self_empl_employ_ben_prog_amount": ${ currency(self_empl_employees[2].value) }
-      - "self_empl_insur_not_health1_amount": ${ currency(self_empl_insur_not_health1_amount) }
-      - "self_empl_insur_not_health1_descr": ${ self_empl_insur_not_health1_descr }
-      - "self_empl_insur_not_health2_descr": ${ self_empl_insur_not_health2_descr }
-      - "self_empl_insur_not_health2_amount": ${ currency(self_empl_insur_not_health2_amount) }
+      - "self_empl_insur_not_health1_amount": ${ currency(self_empl_other_insurances[0].value) }
+      - "self_empl_insur_not_health1_descr": ${ self_empl_other_insurances[0].source }
+      - "self_empl_insur_not_health2_descr": ${ self_empl_other_insurances[1].source }
+      - "self_empl_insur_not_health2_amount": ${ currency(self_empl_other_insurances[1].value) }
       - "self_empl_interest_paid_mort_amount": ${ currency(self_empl_office[1].value) }
-      - "self_empl_other_interest_paid_amount": ${ currency(self_empl_other_interest_paid_amount) }
-      - "self_empl_legal_prof_amount": ${ currency(self_empl_legal_prof_amount) }     
+      - "self_empl_other_interest_paid_amount": ${ currency(self_empl_debts[1].value) }
+      - "self_empl_legal_prof_amount": ${ currency(self_empl_common_exp[2].value) }     
       - "self_empl_office_exp_amount": ${ currency(self_empl_office[8].value) }
-      - "self_emp_cleaning_amount": ${ currency(self_emp_cleaning_amount) }
-      - "self_empl_pension_amount": ${ currency(self_empl_pension_amount) }
+      - "self_emp_cleaning_amount": ${ currency(self_empl_common_exp[3].value) }
+      - "self_empl_pension_amount": ${ currency(self_empl_employees[3].value) }
       - "self_empl_rent_amount": ${ currency(self_empl_office[0].value) }
       - "self_empl_equip_amount": ${ currency(self_empl_office[2].value) }
       - "self_empl_other_property_amount": ${ currency(self_empl_office[5].value) }
       - "self_empl_repairs_amount": ${ currency(self_empl_office[6].value) }
       - "self_empl_supplies_amount": ${ currency(self_empl_office[9].value) }
-      - "self_empl_taxes_amount": ${ currency(self_empl_taxes_amount) }
-      - "self_empl_travel_amount": ${ currency(self_empl_travel_amount) }
-      - "self_empl_meals_amount": ${ currency(self_empl_meals_amount) }
+      - "self_empl_taxes_amount": ${ currency(self_empl_debts[0].value) }
+      - "self_empl_travel_amount": ${ currency( self_empl_travel[0].value) }
+      - "self_empl_meals_amount": ${ currency(self_empl_travel[1].value) }
       - "self_empl_utilities_amount": ${ currency(self_empl_office[7].value) }
       - "self_empl_wages_paid_amount": ${ currency(self_empl_employees[0].value) }
-      - "self_empl_other_exp1_descr": ${ self_empl_other_expenses[0].source }
-      #- "self_empl_other_exp1_amount": ${ currency(self_empl_other_expenses[0].value) }
-      #- "self_empl_other_exp2_descr": ${ self_empl_other_expenses[1].source }
-      #- "self_empl_other_exp2_amount": ${ currency(self_empl_other_expenses[1].value) }
-      - "self_empl_other_exp3_descr": ${ self_empl_other_exp3_descr }
-      - "self_empl_other_exp3_amount": ${ currency(self_empl_other_exp3_amount) }
-      - "self_empl_other_exp4_descr": ${ self_empl_other_exp4_descr }
-      - "self_empl_other_exp4_amount": ${ currency(self_empl_other_exp4_amount) }
-      - "self_empl_other_exp5_amount": ${ currency(self_empl_other_exp5_amount) }
-      - "self_empl_other_exp5_descr": ${ self_empl_other_exp5_descr }
-      - "self_empl_other_exp6_descr": ${ self_empl_other_exp6_descr }
-      - "self_empl_other_exp6_amount": ${ currency(self_empl_other_exp6_amount) }
-      - "self_empl_other_exp7_descr": ${ self_empl_other_exp7_descr }
-      - "self_empl_other_exp7_amount": ${ currency(self_empl_other_exp7_amount) }
-      - "self_empl_other_exp1_subtotal_amount": ${ currency(self_empl_other_expenses) }
+      - "self_empl_other_exp1_descr": ${ currency(self_empl_other_expenses[0].source) }
+      - "self_empl_other_exp1_amount": ${ currency(self_empl_other_expenses[0].value) }
+      - "self_empl_other_exp2_descr": ${ currency(self_empl_other_expenses[1].source) }
+      - "self_empl_other_exp2_amount": ${ currency(self_empl_other_expenses[1].value) }
+      - "self_empl_other_exp3_descr": ${ currency(self_empl_other_expenses[2].source) }
+      - "self_empl_other_exp3_amount": ${ currency(self_empl_other_expenses[2].value) }
+      - "self_empl_other_exp4_descr": ${ currency(self_empl_other_expenses[3].source) }
+      - "self_empl_other_exp4_amount": ${ currency(self_empl_other_expenses[3].value) }
+      - "self_empl_other_exp5_amount": ${ currency(self_empl_other_expenses[4].value) }
+      - "self_empl_other_exp5_descr": ${ currency(self_empl_other_expenses[4].source) }
+      - "self_empl_other_exp6_descr": ${ currency(self_empl_other_expenses[5].source) }
+      - "self_empl_other_exp6_amount": ${ currency(self_empl_other_expenses[5].value) }
+      - "self_empl_other_exp7_descr": ${ currency(self_empl_other_expenses[6].source) }
+      - "self_empl_other_exp7_amount": ${ currency(self_empl_other_expenses[6].value) }
+      - "self_empl_other_exp1_subtotal_amount": ${ currency(self_empl_other_expenses.total(times_per_year = 12)) }
         
-      - "self_employed_expenses_monthly_amount": ${ currency(str(self_employed_expenses_monthly_amount)) }
-      - "self_employed_net_income_monthly_amount": ${ currency(self_employed_net_income_monthly_amount) }
+      - "self_employed_expenses_monthly_amount": ${ currency(sum([ expense.total(times_per_year=12) for expense in al_expense_lists ])) }
+      - "self_employed_net_income_monthly_amount": ${ currency(self_empl_gross_sales_monthly_amount - float(sum([ expense.total(times_per_year=12) for expense in al_expense_lists ]))) }
 
 
 

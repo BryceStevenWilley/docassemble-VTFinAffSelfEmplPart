@@ -19,11 +19,11 @@ images:
 ---
 metadata:
   title: >-
-    813A Financial - self-employment worksheet
+    813A Self-employment worksheet
   short title: >-
-    813A / Self-empl
+    813A Self-employment
   description: |-
-    This interview helps someone in Vermont fill and file an 813A financial affidavit in Vermont.
+    This interview helps someone in Vermont fill in the self-employment worksheet part of the 813A financial affidavit in Vermont.
   tags:
     - "FA-04-00-00-00"
     - "FA-05-00-00-00"
@@ -53,7 +53,7 @@ code: |
   github_repo_name =  'docassemble-VTFinAffSelfEmplPart'
 ---
 code: |
-  interview_short_title = "Fill and file an 813A financial affidavit in Vermont"
+  interview_short_title = "813A Self-employment"
 ---
 code: |
   al_form_type = "existing_case" 
@@ -114,8 +114,9 @@ id: self employment worksheet
 question: |
   Self-employment worksheet
 subquestion: |
-  This section is page 11 on the paper form.
-  Only fill it out if you have a self-employed business.
+  This worksheet is page 11 on the 813A paper form.
+  
+  Only complete these questions if you have a self-employed business and you can't include an IRS Schedule C.
 continue button field: selfemployment_worksheet
 ---
 id: Your monthly gross sales or receipts

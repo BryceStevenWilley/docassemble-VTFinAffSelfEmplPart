@@ -7,6 +7,7 @@ include:
   - docassemble.AssemblyLine:assembly_line.yml
   - docassemble.ALToolbox:al_income.yml
   - docassemble.ALAnyState:any_state.yml
+  - docassemble.VTSharedYMLFile:VTSharedYMLFile.yml
 ---
 features:
   css: style.css
@@ -114,7 +115,7 @@ id: self employment worksheet
 question: |
   Self-employment worksheet
 subquestion: |
-  This worksheet is page 11 on the 813A paper form.
+  This worksheet is on page 11 on the 813A paper form.
   
   Only complete these questions if you have a self-employed business and you can't include an IRS Schedule C.
 continue button field: selfemployment_worksheet

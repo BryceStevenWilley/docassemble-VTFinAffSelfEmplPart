@@ -54,7 +54,7 @@ setup(name='docassemble.VTFinAffSelfEmplPart',
       url='https://vtlawhelp.org',
       packages=find_packages(),
       namespace_packages=['docassemble'],
-      install_requires=['docassemble.ALAnyState', 'docassemble.AssemblyLine>=2.24.0'],
+      install_requires=['docassemble.ALAnyState>=0.1.0', 'docassemble.AssemblyLine>=3.2.0', 'docassemble.VTFeedback', 'docassemble.VTSharedYMLFile'],
       zip_safe=False,
       package_data=find_package_data(where='docassemble/VTFinAffSelfEmplPart/', package='docassemble.VTFinAffSelfEmplPart'),
      )
